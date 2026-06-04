@@ -38,9 +38,20 @@ For convenient access, you can place it in any folder and create a shortcut, or 
 * **System Tray Integration**: Taskbar icon for easy control
 * **Startup Support**: Automatically run when Windows starts
 
+## What's New in This Fork
+
+* Fixed settings menu cutoffs and color mismatches
+* Added screen saver opacity slider
+* Added fade animation on screen saver activate/deactivate
+* Changed systray click behavior to enable/disable timeout
+* Added media playback detection shortcut to systray context menu
+* Added fullscreen application detection
+
 ## Configuration
 
-![Right-click tray icon to configure the app settings.](images/settings_window_example.png)
+<p align="center">
+    <img height="480px" src="images/settings_window_example.png" title="Right-click tray icon to configure the app settings.">
+</p>
 
 Configuration is stored in `%APPDATA%\OLED_Aegis\oled_aegis.ini`. This file is created automatically on first run.
 
@@ -50,6 +61,7 @@ Configuration is stored in `%APPDATA%\OLED_Aegis\oled_aegis.ini`. This file is c
 * **checkInterval**: Milliseconds between idle time checks (default: 1000ms, min: 250ms, max: 10000ms)
 * **pixelShiftCompensation**: Pixels to expand the screen saver window beyond the monitor's reported bounds on each side (default: 0, disabled). Set to `4`–`8` if your QD-OLED panel's hardware pixel shift feature causes a thin strip of the desktop to appear at the screen edge during screen saver activation.
 * **mediaDetectionEnabled**: Set to `1` to prevent screen saver during media playback, `0` to disable (default: 1)
+* **screenSaverOpacity**: Set between `25` (slightly dim) and `100` (full black) to balance screen protection with usability, even while active.
 * **startupEnabled**: Set to `1` to run at Windows startup, `0` to disable (default: 0)
 * **debugMode**: Set to `1` to enable debug logging to `%APPDATA%\OLED_Aegis\oled_aegis_debug.log`, `0` to disable (default: 0). **Note:** only for troubleshooting issues.
 * **perMonitorInputDetection**: Set to `1` to track input separately for each monitor (default: 0). When enabled, each monitor has its own idle timer based on mouse cursor position and focused window location. This allows the screen saver to activate on unused monitors while you continue working on others.
@@ -60,11 +72,11 @@ Configuration is stored in `%APPDATA%\OLED_Aegis\oled_aegis.ini`. This file is c
 ### System Tray
 
 * **Right-click** the tray icon to access:
+  * Media playback detection shortcut
   * Settings (shows config file location)
-  * Enable/Disable Startup
   * Exit
 
-* **Left-click** to toggle screen saver manually
+* **Left-click** to toggle enabling/disabling the screen saver
 
 ### Behavior
 
